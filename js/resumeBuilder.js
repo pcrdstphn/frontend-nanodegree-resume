@@ -14,6 +14,20 @@ var bio = {
 	"welcomemsg": "Welcome to my online Resume"
 	};
 
+var work = {
+	"jobposition" : "Consultant"
+}
+
+work.employer = "DAPA"
+work.yearsworked = "2014-Present"
+work.cityofbusiness = "Lake George, NY"
+
+var education = {
+	"schoolname" : "University of Maine at Orono"
+}
+
+education["schooldates"]="1982-1986";
+education["schoolcity"]="Orono, ME";
 
 var formattedName=HTMLheaderName.replace("%data%", bio.name);
 var formattedRole=HTMLheaderRole.replace("%data%", bio.role);
@@ -24,6 +38,15 @@ var formattedGithub=HTMLgithub.replace("%data%", bio.contacts.github);
 var formattedSkills=HTMLskills.replace("%data%", bio.skills);
 var formattedWelcomeMsg=HTMLwelcomeMsg.replace("%data%", bio.welcomemsg);
 var formattedLocation=HTMLlocation.replace("%data%", bio.contacts.location);
+
+var formattedTitle=HTMLworkTitle.replace("%data%", work.jobposition);
+var formattedEmployer=HTMLworkEmployer.replace("%data%", work.employer);
+var formattedworkDates=HTMLworkDates.replace("%data%", work.yearsworked);
+var formattedworkLocation=HTMLworkLocation.replace("%data%", work.cityofbusiness);
+
+var formattedschoolName=HTMLschoolName.replace("%data%", education.schoolname);
+var formattedschoolDates=HTMLschoolDates.replace("data%", education.schooldates);
+var formattedschoolCity=HTMLschoolLocation.replace("%data%", education.schoolcity);
 
 
 $("#header").prepend(formattedRole);
@@ -37,11 +60,9 @@ $("#topContacts").append(formattedMobile);
 $("#topContacts").append(formattedEmail);
 $("#topContacts").append(formattedGithub);
 
+$("#workExperience").append(HTMLworkStart);
+$("#workExperience").append(formattedTitle, formattedEmployer, formattedworkDates, formattedworkLocation);
 
+$("#education").append(HTMLschoolStart);
+$("#education").append(formattedschoolName, formattedschoolDates, formattedschoolCity);
 
-/*
-	
-	"location":"Lake George, NY";
-	"welcome-message": "Welcome to my online Resume";
-	
-*/
