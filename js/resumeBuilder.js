@@ -71,6 +71,33 @@ var education = {
 	]
 }
 
+var projects = {
+	"projects" : [
+		{
+			"projecttitle" : "Portfolio Webpage",
+			"projectdates" : "2016",
+            "projectdescription" : "FEND Portfolio Project",
+            "projectimage" : "images/fry.jpg"
+        },
+        {
+			"projecttitle" : "Website of My Favorite Movies",
+			"projectdates" : "2015",
+            "projectdescription" : "IPND Stage 3 Project",
+            "projectimage" : "images/moviewebsite.jpg"
+        }
+    ]
+}
+
+
+       
+
+
+
+
+
+/*
+
+
 var formattedName=HTMLheaderName.replace("%data%", bio.name);
 var formattedRole=HTMLheaderRole.replace("%data%", bio.role);
 var formattedbioPic=HTMLbioPic.replace("%data%", bio.biopic);
@@ -110,3 +137,4 @@ $("#workExperience").append(formattedTitle, formattedEmployer, formattedworkDate
 $("#education").append(HTMLschoolStart);
 $("#education").append(formattedschoolName, formattedschoolDates, formattedschoolCity);
 
+*/
