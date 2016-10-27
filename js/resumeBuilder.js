@@ -15,12 +15,28 @@ var bio = {
 	};
 
 var work = {
-	"jobposition" : "Consultant"
-}
+	"jobs" : [
+		{
+			"jobposition" : "Consultant",
+			"employer" : "Directed Action Professional Associates",
+            "yearsworked" : "2014-Present",
+            "cityofbusiness" : "Lake George, NY"
+        },
+        {
+			"jobposition" : "Mill Manager",
+			"employer" : "Finch Paper LLC",
+            "yearsworked" : "2013-2014",
+            "cityofbusiness" : "Glens Falls, NY"
 
-work.employer = "DAPA"
-work.yearsworked = "2014-Present"
-work.cityofbusiness = "Lake George, NY"
+        },
+        {
+			"jobposition" : "Plant Director",
+			"employer" : "Georgia Pacific",
+            "yearsworked" : "2008-2013",
+            "cityofbusiness" : "Lexington, KY"
+        }
+    ]
+}    
 
 var education = {
 	"schools" : [
