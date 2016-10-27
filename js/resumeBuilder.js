@@ -23,11 +23,37 @@ work.yearsworked = "2014-Present"
 work.cityofbusiness = "Lake George, NY"
 
 var education = {
-	"schoolname" : "University of Maine at Orono"
+	"schools" : [
+		{
+			"schoolname" : "University of Michigan",
+			"schoolcity" : "Ann Arbor, MI",
+			"schooldegree" : "Executive Education",
+			"schoolmajor" : "Strategic Marketing Planning",
+			"schooldates" : "1999"
+		},
+		{
+			"schoolname" : "University of Maine",
+			"schoolcity" : "Orono, ME",
+			"schooldegree" : "Bachelor of Science",
+			"schoolmajor" : "Chemical Engineering",
+			"schooldates" : "1986"
+		}
+	],
+	"onlineclasses" : [
+		{
+			"onlinetitle" : "Front End Nanodegree",
+			"onlineschool" : "Udacity",
+			"onlinedates" : "2016-Current",
+			"onlineURL" : "htpps://udacity.com"
+		},
+		{
+			"onlinetitle" : "Intro to Programming Nanodegree",
+			"onlineschool" : "Udacity",
+			"onlinedates" : "2015-2016",
+			"onlineURL" : "htpps://udacity.com"
+		}
+	]
 }
-
-education["schooldates"]="1982-1986";
-education["schoolcity"]="Orono, ME";
 
 var formattedName=HTMLheaderName.replace("%data%", bio.name);
 var formattedRole=HTMLheaderRole.replace("%data%", bio.role);
@@ -47,6 +73,8 @@ var formattedworkLocation=HTMLworkLocation.replace("%data%", work.cityofbusiness
 var formattedschoolName=HTMLschoolName.replace("%data%", education.schoolname);
 var formattedschoolDates=HTMLschoolDates.replace("data%", education.schooldates);
 var formattedschoolCity=HTMLschoolLocation.replace("%data%", education.schoolcity);
+var formattedschoolDegree=HTMLschoolDegree.replace("%data%", education.schooldegree);
+var formattedschoolMajor=HTMLschoolMajor.replace("%data", education.schoolmajor);
 
 
 $("#header").prepend(formattedRole);
