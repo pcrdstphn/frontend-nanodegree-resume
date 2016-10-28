@@ -20,20 +20,23 @@ var work = {
 			"jobposition" : "Consultant",
 			"employer" : "Directed Action Professional Associates",
             "yearsworked" : "2014-Present",
-            "cityofbusiness" : "Lake George, NY"
+            "cityofbusiness" : "Lake George, NY",
+            "workdescription" : "Taking our Problem Solving and Decision Making practice digital."
         },
         {
 			"jobposition" : "Mill Manager",
 			"employer" : "Finch Paper LLC",
             "yearsworked" : "2013-2014",
-            "cityofbusiness" : "Glens Falls, NY"
+            "cityofbusiness" : "Glens Falls, NY",
+            "workdescription" : "Led an integrated Fine Paper manufacturing facility with 515 direct reports."
 
         },
         {
 			"jobposition" : "Plant Director",
 			"employer" : "Georgia Pacific",
             "yearsworked" : "2008-2013",
-            "cityofbusiness" : "Lexington, KY"
+            "cityofbusiness" : "Lexington, KY",
+            "workdescription" : "Led a plastics thermoforming and cup converting facility with 320 direct reports."
         }
     ]
 }    
@@ -103,11 +106,18 @@ if (bio.skills.length>0) {
 	}    
 }
 
-for(work.job in work.jobs) {
+for(job in work.jobs) {
 	$("#workExperience").append(HTMLworkStart);
-	
-
-
+	var formattedEmployer=HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+	var formattedTitle=HTMLworkTitle.replace("%data%", work.jobs[job].jobposition);
+	var formattedEmployerandTitle = formattedEmployer+formattedTitle;
+	$(".work-entry:last").append(formattedEmployerandTitle);
+	var formattedworkDates=HTMLworkDates.replace("%data%", work.jobs[job].yearsworked);
+	var formattedworkLocation=HTMLworkLocation.replace("%data%", work.jobs[job].cityofbusiness);
+	var formattedworkDescription = HTMLworkDescription.replace("%data%", work.jobs[job].workdescription);
+	$(".work-entry:last").append(formattedworkDates);
+	$(".work-entry:last").append(formattedworkLocation);
+	$(".work-entry:last").append(formattedworkDescription);
 }
 
 
@@ -124,8 +134,8 @@ var formattedGithub=HTMLgithub.replace("%data%", bio.contacts.github);
 var formattedWelcomeMsg=HTMLwelcomeMsg.replace("%data%", bio.welcomemsg);
 var formattedLocation=HTMLlocation.replace("%data%", bio.contacts.location);
 
-var formattedTitle=HTMLworkTitle.replace("%data%", work.jobposition);
-var formattedEmployer=HTMLworkEmployer.replace("%data%", work.employer);
+
+
 var formattedworkDates=HTMLworkDates.replace("%data%", work.yearsworked);
 var formattedworkLocation=HTMLworkLocation.replace("%data%", work.cityofbusiness);
 
