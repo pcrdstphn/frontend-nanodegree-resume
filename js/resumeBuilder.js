@@ -75,7 +75,7 @@ var education = {
 }
 
 var projects = {
-	"projects" : [
+	"websites" : [
 		{
 			"projecttitle" : "Portfolio Webpage",
 			"projectdates" : "2016",
@@ -106,26 +106,56 @@ if (bio.skills.length>0) {
 	}    
 }
 
-for (var i=0; i<work.jobs.length; i++) {
-	$("#workExperience").append(HTMLworkStart);
-	var formattedEmployer=HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
-	var formattedTitle=HTMLworkTitle.replace("%data%", work.jobs[i].jobposition);
-	var formattedEmployerandTitle = formattedEmployer+formattedTitle;
-	$(".work-entry:last").append(formattedEmployerandTitle);
-	var formattedworkDates=HTMLworkDates.replace("%data%", work.jobs[i].yearsworked);
-	var formattedworkLocation=HTMLworkLocation.replace("%data%", work.jobs[i].cityofbusiness);
-	var formattedworkDescription = HTMLworkDescription.replace("%data%", work.jobs[i].workdescription);
-	$(".work-entry:last").append(formattedworkDates);
-	$(".work-entry:last").append(formattedworkLocation);
-	$(".work-entry:last").append(formattedworkDescription);
+
+function displayWork() {
+	for (var i=0; i<work.jobs.length; i++) {
+		$("#workExperience").append(HTMLworkStart);
+		var formattedEmployer=HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
+		var formattedTitle=HTMLworkTitle.replace("%data%", work.jobs[i].jobposition);
+		var formattedEmployerandTitle = formattedEmployer+formattedTitle;
+		$(".work-entry:last").append(formattedEmployerandTitle);
+		var formattedworkDates=HTMLworkDates.replace("%data%", work.jobs[i].yearsworked);
+		var formattedworkLocation=HTMLworkLocation.replace("%data%", work.jobs[i].cityofbusiness);
+		var formattedworkDescription = HTMLworkDescription.replace("%data%", work.jobs[i].workdescription);
+		$(".work-entry:last").append(formattedworkDates);
+		$(".work-entry:last").append(formattedworkLocation);
+		$(".work-entry:last").append(formattedworkDescription);
+	}
 }
+
+displayWork();
+
+$("#main").append(internationalizeButton);
+
+function inName() {
+		var splitname = bio.name.split(" ");
+		var inName = splitname[0]+(" ")+splitname[1].toUpperCase();
+		return inName;
+}
+
+console.log(inName());
+
+projects.display = function() {
+	for (var i=0; i<projects.websites.length; i++) {
+		$("#projects").append(HTMLprojectStart);
+		var formattedprojectTitle = HTMLprojectTitle.replace("%data%", projects.websites[i].projecttitle);
+		var formattedprojectDates = HTMLprojectDates.replace("%data%", projects.websites[i].projectdates);
+		var formattedprojectDescription = HTMLprojectDescription.replace("%data%", projects.websites[i].projectdescription);
+		var formattedprojectImage = HTMLprojectImage.replace("%data%", projects.websites[i].projectimage);
+		$(".project-entry:last").append(formattedprojectTitle);
+		$(".project-entry:last").append(formattedprojectDates);
+		$(".project-entry:last").append(formattedprojectDescription);
+		$(".project-entry:last").append(formattedprojectImage);
+	}
+}
+projects.display();
+
+
+
+
 
 
 /*
-
-
-
-
 var formattedbioPic=HTMLbioPic.replace("%data%", bio.biopic);
 var formattedMobile=HTMLmobile.replace("%data%", bio.contacts.mobile);
 var formattedEmail=HTMLemail.replace("%data%", bio.contacts.email);
@@ -135,9 +165,6 @@ var formattedWelcomeMsg=HTMLwelcomeMsg.replace("%data%", bio.welcomemsg);
 var formattedLocation=HTMLlocation.replace("%data%", bio.contacts.location);
 
 
-
-var formattedworkDates=HTMLworkDates.replace("%data%", work.yearsworked);
-var formattedworkLocation=HTMLworkLocation.replace("%data%", work.cityofbusiness);
 
 var formattedschoolName=HTMLschoolName.replace("%data%", education.schoolname);
 var formattedschoolDates=HTMLschoolDates.replace("data%", education.schooldates);
@@ -155,8 +182,6 @@ $("#topContacts").append(formattedMobile);
 $("#topContacts").append(formattedEmail);
 $("#topContacts").append(formattedGithub);
 
-
-$("#workExperience").append(formattedTitle, formattedEmployer, formattedworkDates, formattedworkLocation);
 
 $("#education").append(HTMLschoolStart);
 $("#education").append(formattedschoolName, formattedschoolDates, formattedschoolCity);
